@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>MxTable</h1>
-        <table ng-controller="MultiplicationCtrl">
+        <table ng-controller="MultiplicationCtrl" initial-number-limit="10">
             <tr ng-repeat="numberA in numbers">
                 <td ng-repeat="numberB in numbers">
                     {{ numberA * numberB }}
