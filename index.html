@@ -2,7 +2,7 @@
     <html lang="en" ng-app='myApp'>
     <head>
         <meta charset="UTF-8">
-        <title>Multiplication Table</title>
+        <title>myMultiplication Table</title>
         <!-- note that here we’re linking to a CDN version of Angular  -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     </head>
@@ -11,7 +11,7 @@
         <table ng-controller="MultiplicationCtrl" initial-number-limit="10">
             <tr ng-repeat="numberA in numbers">
                 <td ng-repeat="numberB in numbers">
-                    {{ numberA * numberB }}
+                    {{ compute(numberA, numberB) }}
                 </td>
             </tr>
         </table>
