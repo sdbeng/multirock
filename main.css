@@ -5,3 +5,7 @@ td {
 	text-align: center;
 	vertical-align: middle;
 }
+.hover{
+	background-color: orange;
+	color: white;
+}
