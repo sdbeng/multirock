@@ -14,11 +14,20 @@ angular.module('myApp', [])
 	};
 	return numbers;
 }
-	$scope.numberLimit = $attrs.initialNumberLimit || 10;
-	$scope.numbers = populateNumbers($scope.numberLimit);
-
+	
 	$scope.compute = function(a,b) {
 		return a * b;
 	};
 
+	$scope.$watch('numberLimit', function(limit){
+		$scope.numbers = populateNumbers(limit);
+	});
+
+	$scope.numberLimit = $attrs.initialNumberLimit || 10;
+
 }]);
+
+
+
+
+
