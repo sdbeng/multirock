@@ -4,6 +4,6 @@
 * Description
 */
 angular.module('myApp', [])
-.controller('MultiplicationCtrl', ['', function($scope){
+.controller('MultiplicationCtrl', ['$scope', function($scope){
 	$scope.numbers = [1,2,3,4,5,6,7,8,9,10];
 }]);
