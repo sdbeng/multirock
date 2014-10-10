@@ -20,9 +20,16 @@ To implement this, our template code says that when a user hovers the mouse over
  active factor, then we’ll apply our .hover class to that cell).
 */
 angular.module('myApp', [])
-.controller('MultiplicationCtrl', ['$scope', '$attrs', function($scope, $attrs){
+
+.controller('DisplayCtrl', function($scope) {
+	$scope.$on('displayData', function(event,data) {
+		$scope.content = data;
+	});
+})
+.controller('MultiplicationCtrl', function($scope, $attrs, $rootScope){
 	// $scope.numbers = [1,2,3,4,5,6,7,8,9,10];
-	//let's declare a function to give users a chance to enter x
+
+	//Now, let's declare a function to give users a chance to enter x
 	function populateNumbers(x) {
 		var numbers = [];
 		for (var i = 0; i < x; i++) {
@@ -51,8 +58,16 @@ angular.module('myApp', [])
     $scope.matchesFactor = function (a, b) {
         return a === activeFactorA || b === activeFactorB;
     };
+    
+    $scope.clearActiveFactors = function() {
+    	activeFactorA = activeFactorB = null;
+	};
 
-}]);
+	$scope.setActiveNumber = function(number) {
+		$rootScope.$broadcast('displayData', number);
+	};
+
+});
 
 
 
